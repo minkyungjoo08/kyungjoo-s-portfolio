@@ -52,9 +52,6 @@ with tab1:
   df_f=pd.read_csv("first.csv")
   df1=df.drop(['내용','등록자','출처','승','패'],axis=1) #
   df2=df.drop(['내용','등록자','시기','출처','승','패','인물'],axis=1)
-  st.subheader('데이터 수집')
-  st.text('1950~51년 사이의 6.25전쟁 데이터 150여개를 수집')
-  st.dataframe(df_f) # 원시 df 
 
   st.subheader('데이터 전처리')
   st.text('시기나 출처가 불분명한 데이터 삭제, 가공하기 쉽게 일부 수정')
