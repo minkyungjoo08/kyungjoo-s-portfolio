@@ -47,7 +47,8 @@ with tab1:
                  ).add_to(map_geo)
   st.subheader('지역별 격전 횟수 시각화')
   st_map=st_folium(map_geo,width=700, height=1000 )#시각화 지도
-
+  
+  df=pd.read_csv("war_data.csv")
   df_f=pd.read_csv("first.csv")
   df1=df.drop(['내용','등록자','출처','승','패'],axis=1) #
   df2=df.drop(['내용','등록자','시기','출처','승','패','인물'],axis=1)
