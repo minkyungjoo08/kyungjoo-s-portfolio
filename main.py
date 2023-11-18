@@ -97,8 +97,8 @@ with tab3:
   col1.subheader("프로그래머를 꿈꾸는 민경주입니다.")
   col1.text('''프로그래밍에 높은 관심을 가지고 있으며, 
 AI와 SW기술에 많은 흥미를 가지고 있습니다.''')
-  col1.text('''새로운 기술을 찾고 접목하여 
-기존의 문제를 효과적으로 해결하는일을 좋아합니다. ''')
+  col1.text('''IT 분야는 빠르게 진화하고
+  있어서 새로운 기술을 배우고 싶습니다. ''')
   col1.link_button('Go to my github',url='https://github.com/minkyungjoo08/-')
   col2.image("여권사진.png")
 
