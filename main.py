@@ -3,9 +3,9 @@ import pandas as pd
 import folium
 import numpy as np
 from streamlit_folium import st_folium
-st.title("경주의 포트폴리오")
-tab1,tab2,tab3=st.tabs(['Projects','Description','Introduction'])
 
+tab1,tab2,tab3=st.tabs(['Projects','Description','Introduction'])
+st.title("경주의 포트폴리오")
 with tab1:
   df=pd.read_csv("korean_war.csv")
   df1=df.drop(['내용','등록자','시기','출처'],axis=1)
