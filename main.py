@@ -48,7 +48,16 @@ with tab1:
   st.subheader('지역별 격전 횟수 시각화')
   st_map=st_folium(map_geo,width=700, height=1000 )#시각화 지도
 
-  #st.bar_chart(data=df,x='시기',y=['승','패'],color=['#ff0000','#0000ff']) df수정 후 실행해야함
+  df_f=pd.read_csv("first.csv")
+  df1=df.drop(['내용','등록자','출처','승','패'],axis=1) #
+  df2=df.drop(['내용','등록자','시기','출처','승','패','인물'],axis=1)
+  st.subheader('데이터 수집')
+  st.text('1950~51년 사이의 6.25전쟁 데이터 150여개를 수집')
+  st.dataframe(df_f) # 원시 df 
+
+  st.subheader('데이터 전처리')
+  st.text('시기나 출처가 불분명한 데이터 삭제, 가공하기 쉽게 일부 수정')
+  st.dataframe(df1) #가공한 df
   st.subheader('날짜별 격전의 승패 그래프')
   st.bar_chart(data=df,x='시기',y=['승','패'],color=['#ff0000','#0000ff'])
 
