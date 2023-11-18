@@ -49,6 +49,8 @@ with tab1:
   st_map=st_folium(map_geo,width=700, height=1000 )#시각화 지도
 
   #st.bar_chart(data=df,x='시기',y=['승','패'],color=['#ff0000','#0000ff']) df수정 후 실행해야함
+  st.subheader('날짜별 격전의 승패 그래프')
+  st.bar_chart(data=df,x='시기',y=['승','패'],color=['#ff0000','#0000ff'])
 
 
 with tab2:
