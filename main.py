@@ -6,7 +6,7 @@ st.title("경주의 포트폴리오")
 tab1,tab2,tab3=st.tabs(['Projects','Description','Introduction'])
 
 with tab1:
-  df=pd.read_csv("first.csv")
+  df=pd.read_csv("국방부_6·25전쟁 정보_20180417. (1).csv")
   df1=df.drop(['내용','등록자','시기','출처'],axis=1)
   df2=df.drop(['내용','등록자','시기','출처','인물'],axis=1)
   st.subheader('데이터 수집')
