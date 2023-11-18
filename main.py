@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import folium
-import numpy as np
 from streamlit_folium import st_folium
 st.title("경주의 포트폴리오")
 tab1,tab2,tab3=st.tabs(['Projects','Description','Introduction'])
