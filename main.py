@@ -7,13 +7,24 @@ from streamlit_folium import st_folium
 tab1,tab2,tab3=st.tabs(['Projects','Description','Introduction'])
 
 with tab1:
-  st.title("경주의 포트폴리오")
+  st.headtitle("경주의 포트폴리오")
   df=pd.read_csv("korean_war.csv")
   df1=df.drop(['내용','등록자','시기','출처'],axis=1)
   df2=df.drop(['내용','등록자','시기','출처','인물'],axis=1)
   st.subheader('데이터 수집')
   st.text('1950~51년 사이의 전투 데이터 N개를 수집')
   st.dataframe(df1) #제목,지역,인물(df)
+
+  df=pd.read_csv("war_data.csv")
+  df_f=pd.read_csv("first.csv")
+  df1=df.drop(['내용','등록자','출처','승','패'],axis=1) #
+  df2=df.drop(['내용','등록자','시기','출처','승','패','인물'],axis=1)
+
+  st.subheader('데이터 전처리')
+  st.text('시기나 출처가 불분명한 데이터 삭제, 가공하기 쉽게 일부 수정')
+  st.dataframe(df1) #가공한 df
+  st.subheader('날짜별 격전의 승패 그래프')
+  st.bar_chart(data=df,x='시기',y=['승','패'],color=['#ff0000','#0000ff'])
 
   battle_df=df2.groupby('지역').count().reset_index()
   battle_df.rename(columns={'제목':'격전횟수'},inplace=True)
@@ -47,17 +58,6 @@ with tab1:
                  ).add_to(map_geo)
   st.subheader('지역별 격전 횟수 시각화')
   st_map=st_folium(map_geo,width=700, height=1000 )#시각화 지도
-  
-  df=pd.read_csv("war_data.csv")
-  df_f=pd.read_csv("first.csv")
-  df1=df.drop(['내용','등록자','출처','승','패'],axis=1) #
-  df2=df.drop(['내용','등록자','시기','출처','승','패','인물'],axis=1)
-
-  st.subheader('데이터 전처리')
-  st.text('시기나 출처가 불분명한 데이터 삭제, 가공하기 쉽게 일부 수정')
-  st.dataframe(df1) #가공한 df
-  st.subheader('날짜별 격전의 승패 그래프')
-  st.bar_chart(data=df,x='시기',y=['승','패'],color=['#ff0000','#0000ff'])
 
 
 with tab2:
